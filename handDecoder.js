@@ -13,9 +13,9 @@ HandDecoder.prototype.decodeCards = function(handString) {
   var cardArray = [];
   var thatHandDecoder = this;
   cardStringArray.forEach(function(cardString) {
-    var cardSuit = thatHandDecoder._decodeSuit(cardString);
     var cardRank = thatHandDecoder._decodeRank(cardString);
-    var newCard = new Card(cardSuit, cardRank);
+    var cardSuit = thatHandDecoder._decodeSuit(cardString);
+    var newCard = new Card(cardRank, cardSuit);
     cardArray.push(newCard);
   });
 

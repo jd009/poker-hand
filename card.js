@@ -1,6 +1,6 @@
 module.exports = Card;
 
-function Card (cardSuit, cardRank) {
-  this.suit = cardSuit;
+function Card (cardRank, cardSuit) {
   this.rank = cardRank;
+  this.suit = cardSuit;
 }
