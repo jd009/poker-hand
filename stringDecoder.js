@@ -2,19 +2,19 @@
 
 var Card = require('./card.js');
 
-module.exports = HandDecoder;
+module.exports = StringDecoder;
 
-function HandDecoder () {}
+function StringDecoder () {}
 
-HandDecoder.prototype.decodeCards = function(handString) {
+StringDecoder.prototype.convertToCards = function(handString) {
   var SPACECHAR = ' ';
   var cardStringArray = handString.split(SPACECHAR);
 
   var cardArray = [];
-  var thatHandDecoder = this;
+  var thatStringDecoder = this;
   cardStringArray.forEach(function(cardString) {
-    var cardRank = thatHandDecoder._decodeRank(cardString);
-    var cardSuit = thatHandDecoder._decodeSuit(cardString);
+    var cardRank = thatStringDecoder._decodeRank(cardString);
+    var cardSuit = thatStringDecoder._decodeSuit(cardString);
     var newCard = new Card(cardRank, cardSuit);
     cardArray.push(newCard);
   });
@@ -22,13 +22,13 @@ HandDecoder.prototype.decodeCards = function(handString) {
   return cardArray;
 };
 
-HandDecoder.prototype._decodeSuit = function (cardString) {
+StringDecoder.prototype._decodeSuit = function (cardString) {
   var suitIndex = this._getSuitIndex(cardString);
   var suit = cardString[suitIndex];
   return suit;
 };
 
-HandDecoder.prototype._decodeRank = function (cardString) {
+StringDecoder.prototype._decodeRank = function (cardString) {
   var suitIndex = this._getSuitIndex(cardString);
   var startIndex = 0;
   var stopAtIndex = suitIndex;
@@ -36,7 +36,7 @@ HandDecoder.prototype._decodeRank = function (cardString) {
   return rank;
 };
 
-HandDecoder.prototype._getSuitIndex = function (cardString) {
+StringDecoder.prototype._getSuitIndex = function (cardString) {
   return cardString.length - 1;
 };
 

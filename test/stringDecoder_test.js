@@ -1,12 +1,12 @@
 var assert = require('assert');
 var Card = require('../card.js');
-var HandDecoder = require('../handDecoder.js');
+var StringDecoder = require('../stringDecoder.js');
 
-describe('HandDecoder', function() {
+describe('StringDecoder', function() {
   it('should properly decode the cards in a poker hand', function() {
-    var handDecoder = new HandDecoder();
+    var stringDecoder = new StringDecoder();
     var testString = 'AC AD 7H 5D 5H';
-    var cardArray = handDecoder.decodeCards(testString);
+    var cardArray = stringDecoder.convertToCards(testString);
 
     var expectedCardArray = [];
     var expectedFirstCard = new Card ('A', 'C');
