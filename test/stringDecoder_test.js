@@ -3,7 +3,7 @@ var Card = require('../card.js');
 var StringDecoder = require('../stringDecoder.js');
 
 describe('StringDecoder', function() {
-  it('should properly decode the cards in a poker hand', function() {
+  it('should properly decode the cards in a string representing a poker hand', function() {
     var stringDecoder = new StringDecoder();
     var testString = 'AC AD 7H 5D 5H';
     var cardArray = stringDecoder.convertToCards(testString);
