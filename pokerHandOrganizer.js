@@ -1,17 +1,17 @@
 'use strict';
 
-var HandRecord = require('./handRecord.js');
+var PokerHandRecord = require('./pokerHandRecord.js');
 
-module.exports = HandOrganizer;
+module.exports = PokerHandOrganizer;
 
-function HandOrganizer () {}
+function PokerHandOrganizer () {}
 
-HandOrganizer.prototype.convertToHandRecord = function (cardsArray) {
-  var handRecord = new HandRecord();
+PokerHandOrganizer.prototype.convertToPokerHandRecord = function (cardsArray) {
+  var pokerHandRecord = new PokerHandRecord();
   cardsArray.forEach(function(card) {
-    handRecord.saveCard(card);
+    pokerHandRecord.saveCard(card);
   });
 
-  return handRecord;
+  return pokerHandRecord;
 };
 

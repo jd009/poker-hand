@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = HandRecord;
+module.exports = PokerHandRecord;
 
-function HandRecord () {
+function PokerHandRecord () {
   var LOWEST_RANK = 2;
   var HIGHEST_RANK = 14;
   this.rankRecordStorage = [];
@@ -12,25 +12,25 @@ function HandRecord () {
   this.suitRecordStorage = {};
 }
 
-HandRecord.prototype.getNumSuits = function() {
+PokerHandRecord.prototype.getNumSuits = function() {
   var suitKeys = Object.keys(this.suitRecordStorage);
   var numSuits = suitKeys.length;
   return numSuits;
 };
 
-HandRecord.prototype.getNumCards = function(rank) {
+PokerHandRecord.prototype.getNumCards = function(rank) {
   var storageIndex = this._getStorageIndex(rank);
   var cardsAtRank = this.rankRecordStorage[storageIndex];
   var numCardsAtRank = cardsAtRank.length;
   return numCardsAtRank;
 };
 
-HandRecord.prototype.saveCard = function (card) {
+PokerHandRecord.prototype.saveCard = function (card) {
   this._saveCardBySuit(card);
   this._saveCardByRank(card);
 };
 
-HandRecord.prototype._saveCardBySuit = function (card) {
+PokerHandRecord.prototype._saveCardBySuit = function (card) {
   var suit = card.suit;
   if(this.suitRecordStorage[suit] === undefined) {
     this.suitRecordStorage[suit] = [];
@@ -39,14 +39,14 @@ HandRecord.prototype._saveCardBySuit = function (card) {
   this.suitRecordStorage[suit].push(card);
 };
 
-HandRecord.prototype._saveCardByRank = function (card) {
+PokerHandRecord.prototype._saveCardByRank = function (card) {
   var rank = card.rank;
   var storageIndex = this._getStorageIndex(rank);
 
   this.rankRecordStorage[storageIndex].push(card);
 };
 
-HandRecord.prototype._getStorageIndex = function (rank) {
+PokerHandRecord.prototype._getStorageIndex = function (rank) {
   switch(rank) {
     case 'A':
       return 14;

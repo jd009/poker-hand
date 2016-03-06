@@ -1,13 +1,13 @@
 'use strict';
 
-var HandDecoder = require('./handDecoder.js');
-var HandOrganizer = require('./handOrganizer.js');
-var HandCalculator = require('./handCalculator.js');
+var StringDecoder = require('./stringDecoder.js');
+var PokerHandOrganizer = require('./pokerHandOrganizer.js');
+var PokerHandCalculator = require('./pokerHandCalculator.js');
 
 var testString = 'AC AD 7H 5D 5H';
-var handDecoder = new HandDecoder();
-var cardsArray = handDecoder.decodeCards(testString);
-var handOrganizer = new HandOrganizer();
-var handRecord = handOrganizer.convertToHandRecord(cardsArray);
+var stringDecoder = new StringDecoder();
+var cardsArray = stringDecoder.convertToCards(testString);
+var pokerHandOrganizer = new PokerHandOrganizer();
+var pokerHandRecord = pokerHandOrganizer.convertToPokerHandRecord(cardsArray);
 
-console.log(handRecord);
+console.log(pokerHandRecord);

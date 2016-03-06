@@ -1,9 +1,9 @@
 'use strict';
 
-module.exports = HandCalculator;
+module.exports = PokerHandCalculator;
 
-function HandCalculator () {}
+function PokerHandCalculator () {}
 
-HandCalculator.prototype.scoreHand = function (cardRecord) {
+PokerHandCalculator.prototype.scoreHand = function (cardRecord) {
 
 };
