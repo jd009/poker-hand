@@ -14,8 +14,8 @@ function PokerHandRanker () {
 
 PokerHandRanker.prototype.computeRanking = function(pokerHandString) {
   var cardsArray = this._stringDecoder.convertToCards(pokerHandString);
-  var pokerHandRecord = this._pokerHandOrganizer.convertToPokerHandRecord(cardsArray);
-  var pokerHandScore = this._pokerHandCalculator.scorePokerHand(pokerHandRecord);
+  this._pokerHandOrganizer.saveCards(cardsArray);
+  var pokerHandScore = this._pokerHandCalculator.scorePokerHand(this._pokerHandOrganizer);
   var pokerRankingArray = pokerHandScore.printToArray();
 
   return pokerRankingArray;

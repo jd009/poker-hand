@@ -1,39 +1,39 @@
 var assert = require('assert');
-var PokerHandRecord = require('../pokerHandRecord.js');
+var PokerHandOrganizer = require('../pokerHandOrganizer.js');
 var Card = require('../card.js');
 
-describe('PokerHandRecord', function() {
-  var pokerHandRecord = null;
+describe('PokerHandOrganizer', function() {
+  var pokerHandOrganizer = null;
 
   beforeEach(function() {
-    pokerHandRecord = new PokerHandRecord();
+    pokerHandOrganizer = new PokerHandOrganizer();
   });
 
   it('should properly determine the right storage index for a face card rank', function() {
     var kingRank = 'K';
     var expectedKingIndex = 13;
-    var kingIndex = pokerHandRecord._getStorageIndex(kingRank);
+    var kingIndex = pokerHandOrganizer._getStorageIndex(kingRank);
     assert.equal(kingIndex, expectedKingIndex);
   });
 
   it('should properly determine the right storage index for a number card rank', function() {
     var tenRank = '10';
     var expectedTenIndex = 10;
-    var tenIndex = pokerHandRecord._getStorageIndex(tenRank);
+    var tenIndex = pokerHandOrganizer._getStorageIndex(tenRank);
     assert.equal(tenIndex, expectedTenIndex);
   });
 
   it('should throw an exception for an invalid high number card rank', function() {
     var invalidTooHighRank = '11';
     assert.throws(function() {
-      var storageIndex = pokerHandRecord._getStorageIndex(invalidTooHighRank);
+      var storageIndex = pokerHandOrganizer._getStorageIndex(invalidTooHighRank);
     });
   });
 
   it('should throw an exception for an invalid low number card rank', function() {
     var invalidTooLowRank = '1';
     assert.throws(function() {
-      var storageIndex = pokerHandRecord._getStorageIndex(invalidTooLowRank);
+      var storageIndex = pokerHandOrganizer._getStorageIndex(invalidTooLowRank);
     });
   });
 
@@ -41,20 +41,20 @@ describe('PokerHandRecord', function() {
     var aceRank = 'A';
     var spadesSuit = 'S';
     var testAceOfSpadesCard = new Card(aceRank, spadesSuit);
-    pokerHandRecord.saveCard(testAceOfSpadesCard);
-    var storageIndex = pokerHandRecord._getStorageIndex(aceRank);
-    assert.equal(pokerHandRecord.rankRecordStorage[storageIndex][0], testAceOfSpadesCard);
-    assert.equal(pokerHandRecord.suitRecordStorage[spadesSuit][0], testAceOfSpadesCard);
+    pokerHandOrganizer._saveCard(testAceOfSpadesCard);
+    var storageIndex = pokerHandOrganizer._getStorageIndex(aceRank);
+    assert.equal(pokerHandOrganizer.rankRecordStorage[storageIndex][0], testAceOfSpadesCard);
+    assert.equal(pokerHandOrganizer.suitRecordStorage[spadesSuit][0], testAceOfSpadesCard);
   });
 
   it('should return the correct number of suits in a hand', function() {
     var testTwoOfHeartsCard = new Card('2', 'H');
-    pokerHandRecord.saveCard(testTwoOfHeartsCard);
+    pokerHandOrganizer._saveCard(testTwoOfHeartsCard);
     var testThreeOfClubsCard = new Card('3', 'C');
-    pokerHandRecord.saveCard(testThreeOfClubsCard);
+    pokerHandOrganizer._saveCard(testThreeOfClubsCard);
 
     var expectedNumSuits = 2;
-    var numSuits = pokerHandRecord.getNumSuits();
+    var numSuits = pokerHandOrganizer.getNumSuits();
     assert.equal(numSuits, expectedNumSuits);
   });
 
@@ -62,11 +62,11 @@ describe('PokerHandRecord', function() {
     var sharedRank = '2';
     var sharedRankIndex = 2;
     var testTwoOfHeartsCard = new Card(sharedRank, 'H');
-    pokerHandRecord.saveCard(testTwoOfHeartsCard);
+    pokerHandOrganizer._saveCard(testTwoOfHeartsCard);
     var testTwofClubsCard = new Card(sharedRank, 'C');
-    pokerHandRecord.saveCard(testTwofClubsCard);
+    pokerHandOrganizer._saveCard(testTwofClubsCard);
 
-    var cardsAtRank = pokerHandRecord.getCardsAt(sharedRankIndex);
+    var cardsAtRank = pokerHandOrganizer.getCardsAt(sharedRankIndex);
     assert.equal(testTwoOfHeartsCard, cardsAtRank[0]);
     assert.equal(testTwofClubsCard, cardsAtRank[1]);
   });
