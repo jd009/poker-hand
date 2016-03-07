@@ -59,6 +59,20 @@ describe('PokerHandCalculator', function() {
     assert.equal(pokerHandScore.isStraight, true);
   });
 
+  it('should identify a straight flush', function() {
+    var pokerHandRecord = new PokerHandRecord();
+    pokerHandRecord.saveCard(new Card('9', 'H'));
+    pokerHandRecord.saveCard(new Card('10', 'H'));
+    pokerHandRecord.saveCard(new Card('J', 'H'));
+    pokerHandRecord.saveCard(new Card('Q', 'H'));
+    pokerHandRecord.saveCard(new Card('K', 'H'));
+
+    var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandRecord);
+
+    assert.equal(pokerHandScore.isStraight, true);
+    assert.equal(pokerHandScore.isFlush, true);
+  });
+
   it('should identify a pair', function() {
     var pokerHandRecord = new PokerHandRecord();
     pokerHandRecord.saveCard(new Card('7', 'H'));
