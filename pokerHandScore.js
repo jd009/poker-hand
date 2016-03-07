@@ -48,7 +48,7 @@ PokerHandScore.prototype.printToArray = function () {
   }
 
   if(this.threeOfAKindCards !== null) {
-    handRankingArray.shift(THREE_OF_A_KIND_TEXT);
+    handRankingArray.unshift(THREE_OF_A_KIND_TEXT);
     return handRankingArray;
   }
 
