@@ -1,8 +1,8 @@
 'use strict';
 
-var StringDecoder = require('./stringDecoder.js');
-var PokerHandOrganizer = require('./pokerHandOrganizer.js');
-var PokerHandCalculator = require('./pokerHandCalculator.js');
+var StringDecoder = require('./helpers/stringDecoder.js');
+var PokerHandOrganizer = require('./helpers/pokerHandOrganizer.js');
+var PokerHandCalculator = require('./helpers/pokerHandCalculator.js');
 
 module.exports = PokerHandRanker;
 

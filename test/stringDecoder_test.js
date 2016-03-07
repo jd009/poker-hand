@@ -1,6 +1,6 @@
 var assert = require('assert');
-var Card = require('../card.js');
-var StringDecoder = require('../stringDecoder.js');
+var Card = require('../helpers/card.js');
+var StringDecoder = require('../helpers/stringDecoder.js');
 
 describe('StringDecoder', function() {
   it('should properly decode the cards in a string representing a poker hand', function() {

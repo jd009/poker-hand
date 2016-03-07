@@ -1,6 +1,6 @@
 var assert = require('assert');
-var PokerHandOrganizer = require('../pokerHandOrganizer.js');
-var Card = require('../card.js');
+var PokerHandOrganizer = require('../helpers/pokerHandOrganizer.js');
+var Card = require('../helpers/card.js');
 
 describe('PokerHandOrganizer', function() {
   var pokerHandOrganizer = null;
