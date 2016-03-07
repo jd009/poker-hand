@@ -59,6 +59,19 @@ describe('PokerHandCalculator', function() {
     assert.equal(pokerHandScore.isStraight, true);
   });
 
+  it('should identify a straight starting with ace', function() {
+    var pokerHandRecord = new PokerHandRecord();
+    pokerHandRecord.saveCard(new Card('A', 'C'));
+    pokerHandRecord.saveCard(new Card('K', 'H'));
+    pokerHandRecord.saveCard(new Card('Q', 'D'));
+    pokerHandRecord.saveCard(new Card('J', 'D'));
+    pokerHandRecord.saveCard(new Card('10', 'C'));
+
+    var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandRecord);
+
+    assert.equal(pokerHandScore.isStraight, true);
+  });
+
   it('should identify a straight flush', function() {
     var pokerHandRecord = new PokerHandRecord();
     pokerHandRecord.saveCard(new Card('9', 'H'));
