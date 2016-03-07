@@ -1,3 +1,5 @@
+'use strict';
+
 var assert = require('assert');
 var PokerHandCalculator = require('../helpers/pokerHandCalculator.js');
 var PokerHandOrganizer = require('../helpers/pokerHandOrganizer.js');
