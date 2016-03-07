@@ -23,45 +23,39 @@ PokerHandScore.prototype.printToArray = function () {
   var STRAIGHT_FLUSH_TEXT = 'straight flush';
 
   var handRankingArray = [];
-  var highCardAsString = this.highCard.toString();
-  var highCardReportString = HIGH_CARD_TEXT + highCardAsString;
-  handRankingArray.unshift(highCardReportString);
 
   if(this.isFlush && this.isStraight) {
-    handRankingArray.unshift(STRAIGHT_FLUSH_TEXT);
-    return handRankingArray;
+    handRankingArray.push(STRAIGHT_FLUSH_TEXT);
   }
 
   if(this.fourOfAKindCards !== null) {
-    handRankingArray.unshift(FOUR_OF_A_KIND_TEXT);
-    return handRankingArray;
+    handRankingArray.push(FOUR_OF_A_KIND_TEXT);
   }
 
-  if(this.isFlush) {
-    handRankingArray.unshift(FLUSH_TEXT);
-    return handRankingArray
+  if(this.isFlush && ( ! this.isStraight) ) {
+    handRankingArray.push(FLUSH_TEXT);
   }
 
-  if(this.isStraight) {
-    handRankingArray.unshift(STRAIGHT_TEXT);
-    return handRankingArray;
+  if( ( ! this.isFlush) && this.isStraight) {
+    handRankingArray.push(STRAIGHT_TEXT);
   }
 
   if(this.threeOfAKindCards !== null) {
-    handRankingArray.unshift(THREE_OF_A_KIND_TEXT);
-    return handRankingArray;
+    handRankingArray.push(THREE_OF_A_KIND_TEXT);
   }
 
   var numOfPairs = this.arrayOfPairs.length;
   if(numOfPairs === 2) {
-    handRankingArray.unshift(TWO_PAIR_TEXT);
-    return handRankingArray;
+    handRankingArray.push(TWO_PAIR_TEXT);
   }
 
   if(numOfPairs === 1) {
-    handRankingArray.unshift(ONE_PAIR_TEXT);
-    return handRankingArray;
+    handRankingArray.push(ONE_PAIR_TEXT);
   }
+
+  var highCardAsString = this.highCard.toString();
+  var highCardReportString = HIGH_CARD_TEXT + highCardAsString;
+  handRankingArray.push(highCardReportString);
 
   return handRankingArray;
 };
