@@ -12,4 +12,4 @@ var pokerHandRecord = pokerHandOrganizer.convertToPokerHandRecord(cardsArray);
 var pokerHandCalculator = new PokerHandCalculator();
 var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandRecord);
 
-console.log(pokerHandScore);
+console.log(pokerHandScore.printToArray());
