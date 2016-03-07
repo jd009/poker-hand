@@ -39,11 +39,11 @@ describe('PokerHandOrganizer', function() {
     });
   });
 
-  it('should save a card by suit and rank', function() {
+  it('should store a card by suit and rank', function() {
     var aceRank = 'A';
     var spadesSuit = 'S';
     var testAceOfSpadesCard = new Card(aceRank, spadesSuit);
-    pokerHandOrganizer._saveCard(testAceOfSpadesCard);
+    pokerHandOrganizer._storeCard(testAceOfSpadesCard);
     var storageIndex = pokerHandOrganizer._getStorageIndex(aceRank);
     assert.equal(pokerHandOrganizer.rankRecordStorage[storageIndex][0], testAceOfSpadesCard);
     assert.equal(pokerHandOrganizer.suitRecordStorage[spadesSuit][0], testAceOfSpadesCard);
@@ -51,9 +51,9 @@ describe('PokerHandOrganizer', function() {
 
   it('should return the correct number of suits in a hand', function() {
     var testTwoOfHeartsCard = new Card('2', 'H');
-    pokerHandOrganizer._saveCard(testTwoOfHeartsCard);
+    pokerHandOrganizer._storeCard(testTwoOfHeartsCard);
     var testThreeOfClubsCard = new Card('3', 'C');
-    pokerHandOrganizer._saveCard(testThreeOfClubsCard);
+    pokerHandOrganizer._storeCard(testThreeOfClubsCard);
 
     var expectedNumSuits = 2;
     var numSuits = pokerHandOrganizer.getNumSuits();
@@ -64,9 +64,9 @@ describe('PokerHandOrganizer', function() {
     var sharedRank = '2';
     var sharedRankIndex = 2;
     var testTwoOfHeartsCard = new Card(sharedRank, 'H');
-    pokerHandOrganizer._saveCard(testTwoOfHeartsCard);
+    pokerHandOrganizer._storeCard(testTwoOfHeartsCard);
     var testTwofClubsCard = new Card(sharedRank, 'C');
-    pokerHandOrganizer._saveCard(testTwofClubsCard);
+    pokerHandOrganizer._storeCard(testTwofClubsCard);
 
     var cardsAtRank = pokerHandOrganizer.getCardsAt(sharedRankIndex);
     assert.equal(testTwoOfHeartsCard, cardsAtRank[0]);

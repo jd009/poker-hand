@@ -35,20 +35,20 @@ PokerHandOrganizer.prototype.getLowestRankIndex = function() {
   return this.LOWEST_RANK_INDEX;
 };
 
-PokerHandOrganizer.prototype.saveCards = function (cards) {
+PokerHandOrganizer.prototype.storeCards = function (cards) {
   this._initialize();
   var thatPokerHandOrganizer = this;
   cards.forEach(function(card) {
-    thatPokerHandOrganizer._saveCard(card);
+    thatPokerHandOrganizer._storeCard(card);
   });
 };
 
-PokerHandOrganizer.prototype._saveCard = function (card) {
-  this._saveCardBySuit(card);
-  this._saveCardByRank(card);
+PokerHandOrganizer.prototype._storeCard = function (card) {
+  this._storeCardBySuit(card);
+  this._storeCardByRank(card);
 };
 
-PokerHandOrganizer.prototype._saveCardBySuit = function (card) {
+PokerHandOrganizer.prototype._storeCardBySuit = function (card) {
   var suit = card.suit;
   if(this.suitRecordStorage[suit] === undefined) {
     this.suitRecordStorage[suit] = [];
@@ -57,7 +57,7 @@ PokerHandOrganizer.prototype._saveCardBySuit = function (card) {
   this.suitRecordStorage[suit].push(card);
 };
 
-PokerHandOrganizer.prototype._saveCardByRank = function (card) {
+PokerHandOrganizer.prototype._storeCardByRank = function (card) {
   var rank = card.rank;
   var storageIndex = this._getStorageIndex(rank);
 

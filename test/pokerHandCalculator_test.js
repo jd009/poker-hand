@@ -21,7 +21,7 @@ describe('PokerHandCalculator', function() {
     do {
       var rankStr = rank.toString();
       var newTestCard = new Card(rankStr, spadesSuit);
-      pokerHandOrganizer._saveCard(newTestCard);
+      pokerHandOrganizer._storeCard(newTestCard);
       numCards++;
       rank++;
     } while (numCards <= 5);
@@ -38,7 +38,7 @@ describe('PokerHandCalculator', function() {
     do {
       var rankStr = rank.toString();
       var newTestCard = new Card(rankStr, spadesSuit);
-      pokerHandOrganizer._saveCard(newTestCard);
+      pokerHandOrganizer._storeCard(newTestCard);
       numCards++;
       rank++;
     } while (numCards <= 5);
@@ -55,7 +55,7 @@ describe('PokerHandCalculator', function() {
     cards.push(new Card('9', 'C'));
     cards.push(new Card('10', 'D'));
     cards.push(new Card('J', 'H'));
-    pokerHandOrganizer.saveCards(cards);
+    pokerHandOrganizer.storeCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -69,7 +69,7 @@ describe('PokerHandCalculator', function() {
     cards.push(new Card('Q', 'D'));
     cards.push(new Card('J', 'D'));
     cards.push(new Card('10', 'C'));
-    pokerHandOrganizer.saveCards(cards);
+    pokerHandOrganizer.storeCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -83,7 +83,7 @@ describe('PokerHandCalculator', function() {
     cards.push(new Card('J', 'H'));
     cards.push(new Card('Q', 'H'));
     cards.push(new Card('K', 'H'));
-    pokerHandOrganizer.saveCards(cards);
+    pokerHandOrganizer.storeCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -98,7 +98,7 @@ describe('PokerHandCalculator', function() {
     cards.push(new Card('Q', 'C'));
     cards.push(new Card('K', 'D'));
     cards.push(new Card('J', 'H'));
-    pokerHandOrganizer.saveCards(cards);
+    pokerHandOrganizer.storeCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -112,7 +112,7 @@ describe('PokerHandCalculator', function() {
     cards.push(new Card('Q', 'C'));
     cards.push(new Card('Q', 'D'));
     cards.push(new Card('J', 'H'));
-    pokerHandOrganizer.saveCards(cards);
+    pokerHandOrganizer.storeCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -126,7 +126,7 @@ describe('PokerHandCalculator', function() {
     cards.push(new Card('K', 'C'));
     cards.push(new Card('K', 'D'));
     cards.push(new Card('J', 'H'));
-    pokerHandOrganizer.saveCards(cards);
+    pokerHandOrganizer.storeCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -142,7 +142,7 @@ describe('PokerHandCalculator', function() {
     cards.push(new Card('9', 'C'));
     cards.push(new Card('9', 'D'));
     cards.push(new Card('10', 'H'));
-    pokerHandOrganizer.saveCards(cards);
+    pokerHandOrganizer.storeCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
