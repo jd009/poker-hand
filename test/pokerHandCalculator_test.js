@@ -47,11 +47,13 @@ describe('PokerHandCalculator', function() {
   });
 
   it('should identify a straight', function() {
-    pokerHandOrganizer._saveCard(new Card('7', 'H'));
-    pokerHandOrganizer._saveCard(new Card('8', 'S'));
-    pokerHandOrganizer._saveCard(new Card('9', 'C'));
-    pokerHandOrganizer._saveCard(new Card('10', 'D'));
-    pokerHandOrganizer._saveCard(new Card('J', 'H'));
+    var cards = [];
+    cards.push(new Card('7', 'H'));
+    cards.push(new Card('8', 'S'));
+    cards.push(new Card('9', 'C'));
+    cards.push(new Card('10', 'D'));
+    cards.push(new Card('J', 'H'));
+    pokerHandOrganizer.saveCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -59,11 +61,13 @@ describe('PokerHandCalculator', function() {
   });
 
   it('should identify a straight starting with ace', function() {
-    pokerHandOrganizer._saveCard(new Card('A', 'C'));
-    pokerHandOrganizer._saveCard(new Card('K', 'H'));
-    pokerHandOrganizer._saveCard(new Card('Q', 'D'));
-    pokerHandOrganizer._saveCard(new Card('J', 'D'));
-    pokerHandOrganizer._saveCard(new Card('10', 'C'));
+    var cards = [];
+    cards.push(new Card('A', 'C'));
+    cards.push(new Card('K', 'H'));
+    cards.push(new Card('Q', 'D'));
+    cards.push(new Card('J', 'D'));
+    cards.push(new Card('10', 'C'));
+    pokerHandOrganizer.saveCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -71,11 +75,13 @@ describe('PokerHandCalculator', function() {
   });
 
   it('should identify a straight flush', function() {
-    pokerHandOrganizer._saveCard(new Card('9', 'H'));
-    pokerHandOrganizer._saveCard(new Card('10', 'H'));
-    pokerHandOrganizer._saveCard(new Card('J', 'H'));
-    pokerHandOrganizer._saveCard(new Card('Q', 'H'));
-    pokerHandOrganizer._saveCard(new Card('K', 'H'));
+    var cards = [];
+    cards.push(new Card('9', 'H'));
+    cards.push(new Card('10', 'H'));
+    cards.push(new Card('J', 'H'));
+    cards.push(new Card('Q', 'H'));
+    cards.push(new Card('K', 'H'));
+    pokerHandOrganizer.saveCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -84,11 +90,13 @@ describe('PokerHandCalculator', function() {
   });
 
   it('should identify a pair', function() {
-    pokerHandOrganizer._saveCard(new Card('7', 'H'));
-    pokerHandOrganizer._saveCard(new Card('7', 'S'));
-    pokerHandOrganizer._saveCard(new Card('Q', 'C'));
-    pokerHandOrganizer._saveCard(new Card('K', 'D'));
-    pokerHandOrganizer._saveCard(new Card('J', 'H'));
+    var cards = [];
+    cards.push(new Card('7', 'H'));
+    cards.push(new Card('7', 'S'));
+    cards.push(new Card('Q', 'C'));
+    cards.push(new Card('K', 'D'));
+    cards.push(new Card('J', 'H'));
+    pokerHandOrganizer.saveCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -96,11 +104,13 @@ describe('PokerHandCalculator', function() {
   });
 
   it('should identify two pairs', function() {
-    pokerHandOrganizer._saveCard(new Card('7', 'H'));
-    pokerHandOrganizer._saveCard(new Card('7', 'S'));
-    pokerHandOrganizer._saveCard(new Card('Q', 'C'));
-    pokerHandOrganizer._saveCard(new Card('Q', 'D'));
-    pokerHandOrganizer._saveCard(new Card('J', 'H'));
+    var cards = [];
+    cards.push(new Card('7', 'H'));
+    cards.push(new Card('7', 'S'));
+    cards.push(new Card('Q', 'C'));
+    cards.push(new Card('Q', 'D'));
+    cards.push(new Card('J', 'H'));
+    pokerHandOrganizer.saveCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -108,11 +118,13 @@ describe('PokerHandCalculator', function() {
   });
 
   it('should identify four of a kind', function() {
-    pokerHandOrganizer._saveCard(new Card('K', 'H'));
-    pokerHandOrganizer._saveCard(new Card('K', 'S'));
-    pokerHandOrganizer._saveCard(new Card('K', 'C'));
-    pokerHandOrganizer._saveCard(new Card('K', 'D'));
-    pokerHandOrganizer._saveCard(new Card('J', 'H'));
+    var cards = [];
+    cards.push(new Card('K', 'H'));
+    cards.push(new Card('K', 'S'));
+    cards.push(new Card('K', 'C'));
+    cards.push(new Card('K', 'D'));
+    cards.push(new Card('J', 'H'));
+    pokerHandOrganizer.saveCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
@@ -122,11 +134,13 @@ describe('PokerHandCalculator', function() {
   });
 
   it('should identify three of a kind', function() {
-    pokerHandOrganizer._saveCard(new Card('2', 'H'));
-    pokerHandOrganizer._saveCard(new Card('9', 'S'));
-    pokerHandOrganizer._saveCard(new Card('9', 'C'));
-    pokerHandOrganizer._saveCard(new Card('9', 'D'));
-    pokerHandOrganizer._saveCard(new Card('10', 'H'));
+    var cards = [];
+    cards.push(new Card('2', 'H'));
+    cards.push(new Card('9', 'S'));
+    cards.push(new Card('9', 'C'));
+    cards.push(new Card('9', 'D'));
+    cards.push(new Card('10', 'H'));
+    pokerHandOrganizer.saveCards(cards);
 
     var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandOrganizer);
 
