@@ -3,10 +3,10 @@
 module.exports = PokerHandRecord;
 
 function PokerHandRecord () {
-  var LOWEST_RANK = 2;
-  var HIGHEST_RANK = 14;
+  this.LOWEST_RANK_INDEX = 2;
+  this.HIGHEST_RANK_INDEX = 14;
   this.rankRecordStorage = [];
-  for(var rank = LOWEST_RANK; rank <= HIGHEST_RANK; rank++) {
+  for(var rank = this.LOWEST_RANK_INDEX; rank <= this.HIGHEST_RANK_INDEX; rank++) {
     this.rankRecordStorage[rank] = [];
   }
   this.suitRecordStorage = {};
@@ -18,11 +18,17 @@ PokerHandRecord.prototype.getNumSuits = function() {
   return numSuits;
 };
 
-PokerHandRecord.prototype.getNumCards = function(rank) {
-  var storageIndex = this._getStorageIndex(rank);
-  var cardsAtRank = this.rankRecordStorage[storageIndex];
-  var numCardsAtRank = cardsAtRank.length;
-  return numCardsAtRank;
+PokerHandRecord.prototype.getCardsAt = function(rankIndex) {
+  var cardsAtRankIndex = this.rankRecordStorage[rankIndex];
+  return cardsAtRankIndex;
+};
+
+PokerHandRecord.prototype.getHighestRankIndex = function() {
+  return this.HIGHEST_RANK_INDEX;
+};
+
+PokerHandRecord.prototype.getLowestRankIndex = function() {
+  return this.LOWEST_RANK_INDEX;
 };
 
 PokerHandRecord.prototype.saveCard = function (card) {

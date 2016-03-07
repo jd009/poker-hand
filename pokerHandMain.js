@@ -9,5 +9,7 @@ var stringDecoder = new StringDecoder();
 var cardsArray = stringDecoder.convertToCards(testString);
 var pokerHandOrganizer = new PokerHandOrganizer();
 var pokerHandRecord = pokerHandOrganizer.convertToPokerHandRecord(cardsArray);
+var pokerHandCalculator = new PokerHandCalculator();
+var pokerHandScore = pokerHandCalculator.scorePokerHand(pokerHandRecord);
 
-console.log(pokerHandRecord);
+console.log(pokerHandScore);

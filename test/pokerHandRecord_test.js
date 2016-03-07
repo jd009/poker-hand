@@ -58,15 +58,16 @@ describe('PokerHandRecord', function() {
     assert.equal(numSuits, expectedNumSuits);
   });
 
-  it('should return the correct number of cards at a rank', function() {
+  it('should return the correct cards at a rank', function() {
     var sharedRank = '2';
+    var sharedRankIndex = 2;
     var testTwoOfHeartsCard = new Card(sharedRank, 'H');
     pokerHandRecord.saveCard(testTwoOfHeartsCard);
     var testTwofClubsCard = new Card(sharedRank, 'C');
     pokerHandRecord.saveCard(testTwofClubsCard);
 
-    var expectedNumOfCardsAtRank = 2;
-    var numCardsAtRank = pokerHandRecord.getNumCards(sharedRank);
-    assert.equal(numCardsAtRank, expectedNumOfCardsAtRank);
+    var cardsAtRank = pokerHandRecord.getCardsAt(sharedRankIndex);
+    assert.equal(testTwoOfHeartsCard, cardsAtRank[0]);
+    assert.equal(testTwofClubsCard, cardsAtRank[1]);
   });
 });
