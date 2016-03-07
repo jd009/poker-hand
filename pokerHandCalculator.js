@@ -5,10 +5,12 @@ var PokerHandScore = require('./pokerHandScore.js');
 module.exports = PokerHandCalculator;
 
 function PokerHandCalculator () {
-  this._isStraightStarted = false;
+  this._straightCount = null;
 }
 
 PokerHandCalculator.prototype.scorePokerHand = function (cardRecord) {
+  this._resetStraightCount();
+
   var pokerHandScore = new PokerHandScore();
   this._checkForFlush(cardRecord, pokerHandScore);
 
@@ -57,23 +59,20 @@ PokerHandCalculator.prototype._checkForStraight = function (
   cardsAtCurrentRankIndex,
   pokerHandScore)
 {
-  var straightAlreadyBroken = this._isStraightStarted && ( ! pokerHandScore.isStraight);
-  if(straightAlreadyBroken) {
-    return;
-  }
-
   var isExactlyOneCard = numCardsAtCurrentRankIndex === 1;
   if( ! isExactlyOneCard) {
-    if(this._isStraightStarted) {
-      pokerHandScore.isStraight = false;
-    }
+    this._resetStraightCount();
     return;
   }
 
-  if( ! this._isStraightStarted) {
-    this._isStraightStarted = true;
+  this._straightCount++;
+  if(this._straightCount === 5) {
     pokerHandScore.isStraight = true;
   }
+};
+
+PokerHandCalculator.prototype._resetStraightCount = function () {
+  this._straightCount = 0;
 };
 
 PokerHandCalculator.prototype._checkForCardsOfSameRank = function (
